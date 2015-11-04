@@ -14,7 +14,7 @@ $(function() {
 			var counter=0;
 			results.forEach(function(r){
 				var hrefId = '#' + counter;
-				$('#results').append('<a id="'+counter +'"href="">'+"<li>" + r.artists[0].name + ": " + r.name + "</li>"+"</a>");
+				$('#results').append('<a id="'+counter +'"href="">'+"<li>" + r.artists[0].name + ": " + r.name + "</a>" +" (popularity: " + r.popularity + ") - " + "<i>preview</i>"+ "</li>");
 				$(hrefId).attr("href",r.external_urls.spotify);
 				counter++;
 			});
