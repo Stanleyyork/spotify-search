@@ -16,11 +16,16 @@ $(function() {
 			if(results.length > 0){
 				results.forEach(function(r){
 					var albumImage = r.album.images[0].url;
-					$('#results').append('<img src="'+albumImage+'" height="100">'+'</image>'+'<br>');
+					if($('#trackImageBox').prop("checked") === true){
+						$('#results').append('<img src="'+albumImage+'" height="100">'+'</image>'+'<br>');
+					}
 					$('#results').append('<a href="' + r.external_urls.spotify + '">' + "<b>" + "Song: " + r.name + "</b>" + "</a>");
 					$('#results').append("<br>" + "Artist: " + r.artists[0].name);
 					$('#results').append("<br>" + "Popularity: " + r.popularity + "<br>");
-					$('#results').append('<audio height="100" width="400" controls name="media">' + '<source src=' + r.preview_url + 'type="audio/mpeg">' + '</audio>'+'<br><br>');
+					if($('#trackPreviewBox').prop("checked") === true){
+						$('#results').append('<audio height="100" width="400" controls name="media">' + '<source src=' + r.preview_url + 'type="audio/mpeg">' + '</audio>');
+					}
+					$('#results').append('<br><br>');
 				});
 			} else {
 				$('#results').append("No Results Available");
